@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   concurrencyInDart();
@@ -82,30 +82,30 @@ Future<void> gettingResultWithAsyncAwait() async {
   print('After the future');
 }
 
-Future<void> asynchronousNetwordRequest() async {
-  try {
-    final url = 'https://jsonplaceholder.typicode.com/todos/1';
-    //final url = 'https://jsonplaceholder.typicode.com/todos/pink-elephants';
-    final parsedUrl = Uri.parse(url);
-    final response = await http.get(parsedUrl);
-    final statusCode = response.statusCode;
-    if (statusCode == 200) {
-      final rawJsonString = response.body;
-      //final rawJsonString = 'abc';
-      final jsonMap = jsonDecode(rawJsonString);
-      final todo = Todo.fromJson(jsonMap);
-      print(todo);
-    } else {
-      throw HttpException('$statusCode');
-    }
-  } on SocketException catch (error) {
-    print(error);
-  } on HttpException catch (error) {
-    print(error);
-  } on FormatException catch (error) {
-    print(error);
-  }
-}
+// Future<void> asynchronousNetwordRequest() async {
+//   try {
+//     final url = 'https://jsonplaceholder.typicode.com/todos/1';
+//     //final url = 'https://jsonplaceholder.typicode.com/todos/pink-elephants';
+//     final parsedUrl = Uri.parse(url);
+//     // final response = await http.get(parsedUrl);
+//     final statusCode = response.statusCode;
+//     if (statusCode == 200) {
+//       final rawJsonString = response.body;
+//       //final rawJsonString = 'abc';
+//       final jsonMap = jsonDecode(rawJsonString);
+//       final todo = Todo.fromJson(jsonMap);
+//       print(todo);
+//     } else {
+//       throw HttpException('$statusCode');
+//     }
+//   } on SocketException catch (error) {
+//     print(error);
+//   } on HttpException catch (error) {
+//     print(error);
+//   } on FormatException catch (error) {
+//     print(error);
+//   }
+// }
 
 class Todo {
   Todo({
